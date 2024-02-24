@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості)
+		</h3>
+	</header>
+	<main>
+		<script>
+			// Вводимо дані
+			let quantityGoods = parseFloat(prompt('Введіть кількість товару', "12кг"))
+			let unitCost = parseFloat(prompt('Введіть вартість за одиницю товару', "36грн"))
+			const mpe = 5
+			// Знаходимо результат
+			let totalPrice = quantityGoods * unitCost
+			let taxMpe = (totalPrice * mpe) / 100
+			// Виводимо результат
+			document.write(`Загальна вартість : ${totalPrice.toFixed(2)}, в тому числі: ПДВ ${taxMpe.toFixed(2)}`)
+		</script>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

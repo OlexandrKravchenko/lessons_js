@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
+		</h3>
+	</header>
+	<main>
+		<script>
+			// Вводимо дані
+			let lengthСentimeters = parseFloat(prompt('Введіть довжину у сантиметрах', "7536см"))
+			let СentimetersInmeters = 100
+			let metersInKilometers = 1000
+			// Знаходимо результат
+			let meters = lengthСentimeters / СentimetersInmeters
+			let kilometers = meters / metersInKilometers
+			// Виводимо результат
+			document.write(`Дано довжину у сантиметрах ${lengthСentimeters}см. 
+			Довжина в метрах : ${meters}м. Довжина в кілометрах ${kilometers.toFixed(4)}км`)
+		</script>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

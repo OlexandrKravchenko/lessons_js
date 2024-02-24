@@ -1,0 +1,23 @@
+main {
+  padding: 15px;
+}
+
+table {
+  border: 2px solid black;
+}
+table th,
+table td {
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+.check {
+  border: 1px solid black;
+  padding: 15px;
+  display: inline-grid;
+  grid-template: 3 / 1;
+  gap: 5px;
+}
+li:not(:last-child) {
+  margin-bottom: 10px;
+}
