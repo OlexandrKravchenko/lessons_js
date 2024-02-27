@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			З клавіатури вводяться імена двох дітей та кількість у них цукерок. Вивести не екран ім’я тієї дитини, у
+			якої кількість цукерок є більшою, або вивести, що кількість однакова.
+		</h3>
+	</header>
+	<main>
+		<script>
+			// Введення даних
+			const nameFirstChild = prompt("Введіть ім'я першої дитини:", 'Артем')
+			const nameSecondChild = prompt("Введіть ім'я другої дитини:", 'Альона')
+			const quantityСandiesFirstChild = parseInt(prompt(`Введіть кількість цукерок для однієї дитини:`, `8`))
+			const quantityСandiesSecondChild = parseInt(prompt(`Введіть кількість цукерок для іншої дитини:`, `8`))
+
+			// Знаходимо результат
+			let quantityСandies
+			if (quantityСandiesFirstChild === quantityСandiesSecondChild)
+				quantityСandies = `${nameFirstChild} та ${nameSecondChild} мають однакову кількість цукерок`
+			else if (quantityСandiesFirstChild > quantityСandiesSecondChild)
+				quantityСandies = `${nameFirstChild} має більше цукерок`
+			else if (quantityСandiesFirstChild < quantityСandiesSecondChild)
+				quantityСandies = `${nameSecondChild} має більше цукерок`
+			else
+				quantityСandies = 'Некоректний ввід даних'
+
+			// Виводимо результат
+			document.write(quantityСandies)
+		</script>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

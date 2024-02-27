@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль,
+			С-вантажний автомобіль). Вивести на екран назву транспортного засобу, яким він може керувати.
+		</h3>
+	</header>
+	<main>
+		<script>
+			// Вводимо дані
+			const userСategory = prompt('Введіть категорію водія, англійською:', "A, B, C")
+			const motorbike = 'A'
+			const car = 'B'
+			const truck = 'C'
+			let vehicleName
+
+			// Знаходимо результат
+			switch (userСategory) {
+				case motorbike:
+					vehicleName = 'Ви можете керувати мотоциклом'
+					break;
+				case car:
+					vehicleName = 'Ви можете керувати легковим автомобілем'
+					break;
+				case truck:
+					vehicleName = 'Ви можете керувати вантажним автомобілем'
+					break;
+				default:
+					vehicleName = 'Некоректна категорія'
+					break;
+			}
+			// Виводимо результат
+			document.write(vehicleName)
+
+		</script>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

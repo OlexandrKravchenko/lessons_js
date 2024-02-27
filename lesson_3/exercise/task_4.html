@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку,
+			школярем, студентом, працівником, пенсіонером).
+		</h3>
+	</header>
+	<main>
+		<script>
+			// Вводимо дані
+			const userAge = parseFloat(prompt('Введіть Ваш вік', "1"))
+
+			// Знаходимо результат
+			let whoPerson
+			if (userAge < 1 || userAge > 120) whoPerson = 'Некоректно введений вік'
+			else if (userAge <= 7) whoPerson = 'Ви дитина у садочку'
+			else if (userAge <= 17) whoPerson = 'Ви школяр'
+			else if (userAge <= 23) whoPerson = 'Ви студент'
+			else if (userAge <= 65) whoPerson = 'Ви працівник'
+			else whoPerson = 'Ви пенсіонер'
+
+			// Виводимо результат
+			document.write(whoPerson)
+		</script>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

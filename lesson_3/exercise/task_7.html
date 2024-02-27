@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 7</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
+		</h3>
+	</header>
+	<main>
+		<script>
+			// Вводимо дані
+			const monthNumber = parseInt(prompt('Введіть номер місяця року:', '1-12'))
+			let timeYear
+			// Знаходимо результат
+			switch (monthNumber) {
+				case 1:
+				case 2:
+				case 12:
+					timeYear = 'Це Зима'
+					break;
+				case 3:
+				case 4:
+				case 5:
+					timeYear = 'Це Весна'
+					break;
+				case 6:
+				case 7:
+				case 8:
+					timeYear = 'Це Літо'
+					break;
+				case 9:
+				case 10:
+				case 11:
+					timeYear = 'Це Осінь'
+					break;
+				default:
+					timeYear = 'Некоректно введені дані'
+					break;
+			}
+			// Виводимо результат
+			document.write(timeYear)
+		</script>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

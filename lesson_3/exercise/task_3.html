@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+		</h3>
+	</header>
+	<main>
+		<script>
+			// Вводимо дані
+			let userNum = parseInt(prompt('Введіть ціле число від 1 до 5:', "0"))
+			const minNum = 1
+			const maxNum = 5
+			let randomNum = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+			// Знаходимо результат
+			let lotteryResult
+			if (userNum < 1 || userNum > 5) lotteryResult = "Неккоректне число"
+			else if (userNum === randomNum) lotteryResult = "Вітаю! Ви вгадали"
+			else {
+				userNum = parseInt(prompt("Ви не вгадали. Спробуйте ще, введіть число від 1 до 5", "0"));
+				if (userNum < 1 || userNum > 5) lotteryResult = "Неккоректне число";
+				else if (userNum === randomNum) lotteryResult = "Вітаю! Ви вгадали";
+				else lotteryResult = "Ви не вгадали, пощастить наступного разу";
+			}
+			// Виводимо результат
+			document.write(lotteryResult)
+		</script>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
