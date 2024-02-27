@@ -29,7 +29,7 @@
 				userNum = parseInt(prompt("Ви не вгадали. Спробуйте ще, введіть число від 1 до 5", "0"));
 				if (userNum < 1 || userNum > 5) lotteryResult = "Неккоректне число";
 				else if (userNum === randomNum) lotteryResult = "Вітаю! Ви вгадали";
-				else lotteryResult = "Ви не вгадали, пощастить наступного разу";
+				else lotteryResult = (`Ви не вгадали. Загадене число ${randomNum}, пощастить наступного разу!`);
 			}
 			// Виводимо результат
 			document.write(lotteryResult)

@@ -18,17 +18,18 @@
 	<main>
 		<script>
 			// Вводимо дані
-			const priceProduct = parseFloat(prompt('Введіть ціна товару у грн:', '123 '))
-			const availabilityMoney = parseFloat(prompt('Введіть кількість грошей у грн:', '500'))
+			const priceProduct = parseFloat(prompt('Введіть ціна товару у грн:'))
+			const availabilityMoney = parseFloat(prompt('Введіть кількість грошей користувача у грн:'))
+			const lotteryPrice = 4
 			// Знаходимо результат
 
 			let result
-			if (availabilityMoney > priceProduct)
-				result = 'Дякуємо за купівлю товару! Пропонуємо Вам ще купити лотерею за 4 грн. Джек-пот 1 000 000 грн!'
-			else if (availabilityMoney < priceProduct)
-				result = 'Нажаль введеної Вами суми не вистачає для купівлі товару, введіть більшу суму'
+			if (availabilityMoney < priceProduct)
+				result = 'Нажаль введеної Вами суми не вистачає для купівлі товару'
 			else if (availabilityMoney === priceProduct)
-				result = 'Дякуємо за купівлю товару без решти'
+				result = 'Дякуємо за купівлю товару! '
+			else if (availabilityMoney >= (priceProduct + lotteryPrice))
+				result = 'Дякуємо за купівлю. Пропонуємо Вам ще купити лотерею за 4 грн. Джек-пот 1 000 000 грн!'
 			else result = 'Некоректний ввід даних'
 			// Виводимо результат
 			document.write(result)
