@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Вивести з використанням циклів маркований список з випадковими числами (1-100).
+			Кількість випадкових чисел вводиться користувачем.
+		</h3>
+	</header>
+	<main>
+
+		<script>
+			// Вводимо дані
+			let userRandomNum = parseInt(prompt('Скільки чисел треба вивести?'))
+			// Знаходимо результат
+			document.write("<ul>")
+			for (let randomNum = 0; randomNum < userRandomNum; randomNum++) {
+				document.write(`<li>${1 + Math.floor(Math.random() * 100)}</li>`)
+			}
+			document.write("</ul>")
+		</script>
+		<a href="../exercise/task_4.html" class="reboot">Спробувати ще!</a>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

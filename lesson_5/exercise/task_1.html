@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.
+		</h3>
+	</header>
+	<main>
+
+		<script>
+			// Вводимо дані
+			const minNum = 1
+			const maxNum = 1000
+			let randomNum
+			let evenNumbers = 0
+			let oddNumbers = 0
+			// Знаходимо результат
+			for (randomNum = 0; randomNum < 100; randomNum++) {
+				let randomNum = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+				if (randomNum % 2 === 0)
+					evenNumbers++
+				else
+					oddNumbers++
+			}
+			// Виводимо результат
+			if (evenNumbers > oddNumbers)
+				document.write(`Парних (${evenNumbers}) більше ніж непарних чисел (${oddNumbers})`)
+			if (evenNumbers < oddNumbers)
+				document.write(`Непарних (${oddNumbers}) більше ніж парних чисел (${evenNumbers})`)
+			if (evenNumbers === oddNumbers)
+				document.write(`Парних (${evenNumbers}) та непарних чисел (${oddNumbers}) порівну`)
+		</script>
+		<a href="../exercise/task_1.html" class="reboot">Спробувати ще!</a>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<header>
+
+		<h3>
+			Морський бій. <br>
+			Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. <br>
+			Маючи К снарядів користувач намагається потопити корабель.
+		</h3>
+	</header>
+	<main>
+
+		<script>
+			// Вводимо дані
+			alert('Морський бій! На полі буде випадково розташован одиночний корабель')
+			const rowsNumber = parseInt(prompt('Задайте розмір рядків поля (N):'))
+			const columnsNumber = parseInt(prompt('Задайте розмір стовпів поля (M):'))
+			let shellStock = 2 + Math.floor(Math.random() * (5 - 2 + 1))
+			alert(`Ви маєте ${shellStock} снарядів`)
+
+			//Випадкове розміщення корабля (номер рядка і стовпця)
+			const shipRowPosition = 1 + Math.floor(Math.random() * rowsNumber)
+			const shipColumnPosition = 1 + Math.floor(Math.random() * columnsNumber)
+
+			// Використовуємо цикл
+			let userRow, userColumn, checkShotResult
+			do {
+				userRow = parseInt(prompt('Введіть номер рядка:'))
+				userColumn = parseInt(prompt('Введіть номер стовпця:'))
+				shellStock--
+				checkShotResult =
+					userRow === shipRowPosition && userColumn === shipColumnPosition
+				if (!checkShotResult)
+					alert('Не влучив :(')
+			} while (!checkShotResult && shellStock > 0)
+
+			if (checkShotResult) alert('Перемога !!! ')
+			else alert(`Програш, корабель був розташований: ${shipRowPosition}-${shipColumnPosition}`)
+
+		</script>
+		<a href="../exercise/task_5.html" class="reboot">Спробувати ще!</a>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

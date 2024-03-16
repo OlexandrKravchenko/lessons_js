@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній)
+		</h3>
+	</header>
+	<main>
+
+		<script>
+
+			// Вводимо дані
+			let firstNum = 1
+
+			// Знаходимо результат
+			for (let tableElement = 0; tableElement < 3; tableElement++) {
+				document.write(`<table class="table">`)
+				for (let trElement = 0; trElement < 3; trElement++) {
+					document.write(`<tr>`)
+					for (let tdElement = 0; tdElement < 3; tdElement++) {
+						document.write(`<td>${firstNum}</td>`)
+						firstNum++
+					}
+					document.write(`</tr>`)
+				}
+				document.write(`</table>`)
+			}
+
+			// Виводимо результат
+
+		</script>
+		<a href="../exercise/task_2.html" class="reboot">Спробувати ще!</a>
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
