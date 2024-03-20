@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Інвестор вклав 'S' тис. грн на 20 років під 20% річних, податок складає 5% від суми прибутку. Визначити за
+			допомогою циклів суму, яку він одержить.
+		</h3>
+	</header>
+	<main>
+
+		<script>
+			// Вводимо дані
+
+			const userMoney = parseFloat(prompt("Введіть суму вкладу:", 8765))
+			let depositMoney = userMoney
+			const profitRate = 20 / 100
+			const taxRate = 5 / 100
+			// investingMoney
+			for (let depositYear = 1; depositYear <= 20; depositYear++) {
+				depositMoney += (depositMoney * profitRate) - (depositMoney * profitRate * taxRate)
+			}
+
+			document.write(`Початкова інвестиція: ${userMoney}грн. Сума, яку отримує інвестор: ${depositMoney.toFixed(2)}грн.`)
+
+		</script>
+
+		<a href="../exercise/task_4.html" class="reboot">Спробувати ще!</a>
+
+
+	</main>
+	<footer>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

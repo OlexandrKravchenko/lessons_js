@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<header>
+
+		<h3>
+			Зобразити рівнобедрений трикутник із символів ^. Висоту задає користувач.
+		</h3>
+	</header>
+	<main>
+
+		<script>
+
+			const rowsNumber = parseInt(prompt('Введіть кількість рядків у трикутника', '5'))
+			document.write('<div class="triangle">')
+			for (let rowIndex = 0; rowIndex < (rowsNumber * 2); rowIndex += 2) {
+				document.write('<br>')
+				for (let symbolIndex = 0; symbolIndex <= rowIndex; symbolIndex++) {
+					document.write('^')
+				}
+			}
+			document.write('<div>')
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_5.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
