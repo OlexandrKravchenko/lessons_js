@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.
+		</h3>
+	</header>
+	<main>
+		<script>
+			"use strict"
+			// Знаходимо результат
+			function getSeason(month) {
+				let season;
+				switch (month) {
+					case 12:
+					case 1:
+					case 2:
+						season = 'Зима'
+						break;
+					case 3:
+					case 4:
+					case 5:
+						season = 'Весна'
+						break;
+					case 6:
+					case 7:
+					case 8:
+						season = 'Літо'
+						break;
+					case 9:
+					case 10:
+					case 11:
+						season = 'Осінь'
+						break;
+				}
+				return season;
+			}
+			let userMonth = parseInt(prompt('Введіть номер місяця року:'))
+			document.write(`Пора року: ${getSeason(userMonth)}`)
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_1.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

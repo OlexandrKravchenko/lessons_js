@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<div>
+			Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+		</div>
+
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+			// Знаходимо результат
+			function getWorkday(day) {
+				let dayOfWeek;
+				switch (day) {
+					case 1:
+					case 2:
+					case 3:
+					case 4:
+					case 5:
+						dayOfWeek = 'Робочий'
+						break;
+					case 6:
+					case 7:
+						dayOfWeek = 'Вихідний'
+						break;
+				}
+				return dayOfWeek;
+			}
+			let userDay = parseInt(prompt('Введіть номер дня тижня:'))
+			document.write(`День тижня №${userDay}: ${getWorkday(userDay)}`)
+
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_3.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

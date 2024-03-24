@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 8</title>
+</head>
+
+<body>
+	<header>
+		<h4>
+			Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень
+			(шляхи до зображень передаються у функцію)
+		</h4>
+	</header>
+	<main>
+		<script>
+			"use strict"
+			function getRandomImage(minNum, maxNum) {
+				let randomImage = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+				let selectedImage
+				switch (randomImage) {
+					case 1:
+						selectedImage = firstImage
+						break;
+					case 2:
+						selectedImage = secondImage
+						break;
+					case 3:
+						selectedImage = thirdImage
+						break;
+					case 4:
+						selectedImage = fourthImage
+						break;
+				}
+				return selectedImage
+			}
+			const firstImage = '<img src="../img/img1.jpg" alt="image">'
+			const secondImage = '<img src="../img/img2.jpg" alt="image">'
+			const thirdImage = '<img src="../img/img3.jpg" alt="image">'
+			const fourthImage = '<img src="../img/img4.jpg" alt="image">'
+
+			document.write(`${getRandomImage(1, 4)}`)
+		</script>
+
+
+	</main>
+	<footer>
+		<a href="../exercise/task_8.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
