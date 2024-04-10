@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 9</title>
+</head>
+
+<body>
+	<header>
+		<h4>
+			Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди
+			переходимо при кліку на зображення) (тег img повине знаходитись у середині тега a: <a> <img src=”шлях”> </a>)
+		</h4>
+	</header>
+	<main>
+		<script>
+			"use strict"
+			function getBanner(title, image, link) {
+				document.write(`
+				<div>
+					<h2>${title}</h2>
+					<a href="${link}" target="_blank">
+						<img src="${image}" alt="photo">
+					</a>
+				</div>
+				`)
+			}
+			let userTitle = 'Фрилансер по жизни'
+			let userImage = '../img/cover.jpg'
+			let userLink = 'https://fls.guru/'
+			getBanner(userTitle, userImage, userLink)
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_9.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

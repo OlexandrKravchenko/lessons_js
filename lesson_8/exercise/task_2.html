@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<header>
+		<h3 class="list__text">
+			Дано масив, який зберігає кількість відвідувачів магазину протягом тижня.
+		</h3>
+		<p class="list__text">
+			Вивести на екран:
+		</p>
+		<ul class="list__nested">
+			<li>номери днів, протягом яких кількість відвідувачів була меншою за 20;</li>
+			<li>номери днів, коли кількість відвідувачів була мінімальною;</li>
+			<li>номери днів, коли кількість відвідувачів була максимальною;</li>
+			<li>загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.</li>
+		</ul>
+	</header>
+	<main>
+		<h2 class="title">Вивід результату:</h2>
+		<script>
+			"use strict"
+			// Знаходимо результат
+			let visitorsStorePerWeek = [33, 22, 15, 30, 27, 36, 17]
+
+			function getLessThan(visitorsStorePerWeek) {
+				let lessThanNormal = []
+				for (let i = 0; i < visitorsStorePerWeek.length; i++) {
+					if (visitorsStorePerWeek[i] < 20) lessThanNormal.push(i + 1)
+				}
+				return lessThanNormal
+			}
+			document.write(`Номера днів тижня, в які відвідувачів було менше двадцяти: ${getLessThan(visitorsStorePerWeek)}<br>`)
+
+			function getDayMinOfVisitors(visitorsStorePerWeek) {
+				let minOfVisitors = visitorsStorePerWeek[0]
+				let dayMinOfVisitors = 0
+				for (let i = 1; i < visitorsStorePerWeek.length; i++) {
+					if (visitorsStorePerWeek[i] <= minOfVisitors) {
+						minOfVisitors = visitorsStorePerWeek[i]
+						dayMinOfVisitors = i
+					}
+				}
+				return ++dayMinOfVisitors
+			}
+			document.write(`Номер дня тижня, в який кількість відвідувачів була мінімальною: ${getDayMinOfVisitors(visitorsStorePerWeek)}<br>`)
+
+
+			function getDayMaxOfVisitors(visitors) {
+				let dayMaxOfVisitors = 0
+				let maxOfVisitors = visitors[0]
+				for (let i = 0; i < visitors.length; i++) {
+					if (visitors[i] >= maxOfVisitors) {
+						maxOfVisitors = visitors[i]
+						dayMaxOfVisitors = i
+					}
+				}
+				return ++dayMaxOfVisitors
+			}
+			document.write(`Номер дня тижня, в який кількість відвідувачів була максимальною: ${getDayMaxOfVisitors(visitorsStorePerWeek)}<br>`)
+
+			function getVisitorsOnWeekdays(visitorsStorePerWeek) {
+				let visitorsOnWeekdays = 0
+				for (let i = 0; i < 5; i++) {
+					visitorsOnWeekdays += visitorsStorePerWeek[i]
+				}
+				return visitorsOnWeekdays
+			}
+			document.write(`Загальна кількість відвідувачів у будні: ${getVisitorsOnWeekdays(visitorsStorePerWeek)} <br>`)
+
+
+			function getVisitorsOnWeekends(visitorsStorePerWeek) {
+				let visitorsOnWeekends = 0
+				for (let i = 5; i < visitorsStorePerWeek.length; i++) {
+					visitorsOnWeekends += visitorsStorePerWeek[i]
+				}
+				return visitorsOnWeekends
+			}
+			document.write(`Загальна кількість відвідувачів у вихідні: ${getVisitorsOnWeekends(visitorsStorePerWeek)}`)
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_2.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

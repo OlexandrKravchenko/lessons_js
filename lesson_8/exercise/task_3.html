@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<h4>
+			Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+		</h4>
+		<ul>
+			<li>починаються на букву «А»;</li>
+			<li>перша і остання літери співпадають;</li>
+			<li>складаються з більше ніш 5 символів;</li>
+		</ul>
+
+	</header>
+	<main>
+		<h2 class="title">Вивід результату:</h2>
+		<script>
+			"use strict"
+			// Знаходимо результат
+			let carNumbersList = ['AX7217XA', 'AX5833KC', 'AA5687KI', 'BO6594EB',
+				'BA7452CA', 'BC3548CB', 'IB4261KI', 'OK7812BO', 'TA1492KP', 'CA5684AC',
+				'HO6663BA', 'EB0980PO', 'AT4525XX', 'AA0330AX', '1533', 'BI1230BE']
+
+			function getFirstLetterQuantity(list, letter) {
+				let sum = 0
+				for (let i = 0; i < list.length; i++) {
+					if (list[i][0] === letter)
+						sum++
+				}
+				return sum
+			}
+
+			function getSameLetters(list) {
+				let sum = 0
+				for (let i = 0; i < list.length; i++) {
+					if (list[i][0] === list[i][list[i].length - 1])
+						sum++
+				}
+				return sum
+			}
+
+			function getNumberCharacters(list, quantity) {
+				let sum = 0
+				for (let i = 0; i < list.length; i++) {
+					if (list[i].length > quantity) {
+						sum++
+					}
+				}
+				return sum
+			}
+			document.write(`Починаються на букву «А»: ${getFirstLetterQuantity(carNumbersList, 'A')}<br>`)
+			document.write(`Перша і остання літери співпадають: ${getSameLetters(carNumbersList)}<br>`)
+			document.write(`Складаються з більше ніш 5 символів: ${getNumberCharacters(carNumbersList, 5)}<br>`)
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_3.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

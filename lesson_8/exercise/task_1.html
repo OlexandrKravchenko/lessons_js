@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він
+			відноситься (відмінник, хорошист (оцінки добре і відмінно), трійочник(є
+			хоча би одна трійка), двійочник (має хоча би одну двійку)).
+	</header>
+	<main>
+		<h2 class="title">Вивід результату:</h2>
+		<script>
+			"use strict"
+
+			let studentsLessons = parseInt(prompt('Ввведіть кількість предметів:', '8'))
+			let studentsGrades = new Array(studentsLessons)
+			for (let i = 0; i < studentsGrades.length; i++) {
+				let studentGrades = parseInt(prompt(`Введіть оцінку ${i + 1}-го предмету`))
+				studentsGrades[i] = studentGrades
+			}
+			function getStudentCategory(scoresList) {
+				const minScore = Math.min(...scoresList)
+				let category
+				switch (minScore) {
+					case 5:
+						category = 'Відмінник'
+						break
+					case 4:
+						category = 'Хорошист'
+						break
+					case 3:
+						category = 'Трійочник'
+						break
+					default:
+						category = 'Двійочник'
+						break
+				}
+				return category
+			}
+			document.write(`Студент відноситься до категорії: ${getStudentCategory(studentsGrades)}`)
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_1.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 7</title>
+</head>
+
+<body>
+	<header>
+		<h4>
+			Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим
+			фіксованим повідомленням).
+		</h4>
+	</header>
+	<main>
+		<script>
+			"use strict"
+			function createTable(rows, columns, message) {
+				document.write('<table>');
+				for (let row = 0; row < rows; row++) {
+					document.write('<tr>');
+					for (let column = 0; column < columns; column++) {
+						document.write(`<td>${message}</td>`);
+					}
+					document.write('</tr>');
+				}
+				document.write('</table>')
+			}
+
+			const rowsNumber = parseInt(prompt("Введіть кількість рядків:", "1"));
+			const columnNumber = parseInt(prompt("Введіть кількість стовпців:", "1"));
+			const userMessage = prompt("Введіть повідомлення:");
+
+			createTable(rowsNumber, columnNumber, userMessage);
+
+		</script>
+	</main>
+	<footer>
+		<a href="../exercise/task_7.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

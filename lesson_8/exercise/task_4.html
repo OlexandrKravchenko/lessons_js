@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити
+			користувач (кількість грошей задається).
+		</h3>
+
+	</header>
+	<main>
+		<h4>
+			Вивід результатів:
+		</h4>
+
+		<script>
+			"use strict"
+
+			let listOfGoods = ['meat', 'cheese', 'juice', 'bread', 'vegetables']
+			let pricesForGoods = [890, 530, 70, 50, 290]
+			let amountMoney = parseFloat(prompt('Введіть на яку суму грошей розраховуєте:', '50'))
+
+			function getAffordableGoods(list, price, money) {
+				let affordableGoods = []
+				for (let i = 0; i < price.length; i++) {
+					if (amountMoney >= pricesForGoods[i]) affordableGoods.push(listOfGoods[i])
+				}
+				return affordableGoods
+			}
+
+			document.write(`Перелік товарів: ${getAffordableGoods(listOfGoods, pricesForGoods, amountMoney)}`)
+
+		</script>
+
+
+
+
+	</main>
+	<footer>
+		<a href="../exercise/task_4.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

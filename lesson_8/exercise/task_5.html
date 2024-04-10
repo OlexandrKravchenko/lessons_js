@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<header>
+
+		<h3>
+			Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+		</h3>
+		<ol>
+			<li>за весь рік;</li>
+			<li>у першій половині року;</li>
+			<li>у другій половині року;</li>
+			<li>за літо;</li>
+			<li>за ІІ квартал;</li>
+			<li>за парні місяці (з парними номерами);</li>
+			<li>за місяці, які є початковими у сезоні (весна, літо, осінь, зима).</li>
+		</ol>
+	</header>
+	<main>
+		<h4>
+			Вивід результатів:
+		</h4>
+		<script>
+			"use strict"
+			let sequenceOfPayments = [5300, 5500, 4850, 3360, 1580, 1430, 1200, 1480, 2950, 4680, 5170, 5480]
+
+			function getSumPaymentsForPeriod(sequenceOfPayments, startMonth, endMonth, step = 1) {
+				let sum = 0
+				for (let m = startMonth - 1; m < endMonth; m += step) {
+					sum += sequenceOfPayments[m]
+				}
+				return sum
+			}
+
+			let forWholeYear = getSumPaymentsForPeriod(sequenceOfPayments, 1, 12)
+			let firstHalfOfYear = getSumPaymentsForPeriod(sequenceOfPayments, 1, 6)
+			let secondHalfOfYear = getSumPaymentsForPeriod(sequenceOfPayments, 7, 12)
+			let forSummer = getSumPaymentsForPeriod(sequenceOfPayments, 6, 8)
+			let forSecondQuater = getSumPaymentsForPeriod(sequenceOfPayments, 4, 6)
+			let forEvenMonth = getSumPaymentsForPeriod(sequenceOfPayments, 2, 12, 2)
+			let beginningOfSeason = getSumPaymentsForPeriod(sequenceOfPayments, 3, 12, 3)
+
+			document.write(`
+			<ul>
+				<li>Сумарна кількість грошей за весь рік: ${forWholeYear}</li>
+				<li>Сумарна кількість грошей за першу половину року: ${firstHalfOfYear}</li>
+				<li>Сумарна кількість грошей за другу половину року: ${secondHalfOfYear}</li>
+				<li>Сумарна кількість грошей за літо: ${forSummer}</li>
+				<li>Сумарна кількість грошей за 2 квартал: ${forSecondQuater}</li>
+				<li>Сумарна кількість грошей за парні місяці: ${forEvenMonth}</li>
+				<li>Сумарна кількість грошей за місяці, які є початковими у сезоні: ${beginningOfSeason}</li>
+			</ul>					
+			`)
+		</script>
+
+
+	</main>
+	<footer>
+		<a href="../exercise/task_5.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
