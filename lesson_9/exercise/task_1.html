@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості елементів
+			заповнених нулями.
+		</h3>
+	</header>
+	<main>
+		<h4>
+			Вивід результату:
+		</h4>
+		<script>
+			"use strict"
+			// Знаходимо результат
+			let userNumEl = parseInt(prompt('Введіть кількість елементів масиву:'))
+			let userMassif = new Array(userNumEl).fill(0)
+			document.write(userMassif)
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_1.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
