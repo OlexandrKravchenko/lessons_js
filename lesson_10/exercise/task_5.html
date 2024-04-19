@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<header>
+
+		<h3>
+			Дано масив елементів. Знайти добуток додатних елементів
+		</h3>
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+			let arrayOfElements = [26, -122, 228, -360, -780, 12, 56, 81, -150, 237, 72]
+			let result = 1
+			for (const element of arrayOfElements) {
+				if (element > 0) result *= element
+
+			}
+
+			document.write(`<div> ${result} </div>`);
+
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_5.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+body {
+  font-size: 18px;
+}
+main {
+  padding: 15px;
+}
+a {
+  display: inline-block;
+  padding: 12px 10px;
+  border-radius: 5px;
+  box-shadow: 0 0px 3px 0px black;
+  margin-bottom: 5px;
+  background-color: aquamarine;
+  transition: all 0.3s;
+}
+a:hover {
+  box-shadow: 0 1px 5px 1px black;
+}
+.reboot {
+  display: block;
+  background-color: rgba(96, 125, 219, 0.575);
+  box-shadow: inset 0 0px 10px 1px rgba(96, 125, 219, 1);
+  margin: 10px;
+  max-width: 140px;
+  text-align: center;
+  transition: all 0.3s;
+}
+table {
+  border: 2px solid black;
+}
+table th,
+table td {
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+.check {
+  border: 1px solid black;
+  padding: 15px;
+  display: inline-grid;
+  grid-template: 3 / 1;
+  gap: 5px;
+}
+
+.table {
+  display: inline-block;
+  margin-right: 50px;
+}
+.triangle {
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  padding: 10px;
+}
+ol {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга
+			заповнена 7-ками.
+		</h3>
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+			// Знаходимо результат
+
+			let userNumEl = parseInt(prompt('Введіть кількість елементів масиву:', '8'))
+			let userMassif = new Array(userNumEl)
+			let halfUserNumEl = Math.floor(userNumEl / 2)
+
+
+			userMassif.fill(1, 0, halfUserNumEl)
+			userMassif.fill(7, halfUserNumEl)
+
+
+
+			document.write(userMassif)
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_2.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

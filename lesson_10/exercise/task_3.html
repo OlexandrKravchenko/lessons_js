@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<div>
+			Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші
+			до кінця масиву заповнені 7-ками.
+		</div>
+
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+			// Знаходимо результат
+
+			let userNumEl = parseInt(prompt('Введіть кількість елементів масиву:', '10'))
+			let userMassif = new Array(userNumEl).fill(1, 0, 5)
+			userMassif.fill(7, 5)
+
+			document.write(userMassif)
+
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_3.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
