@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Морський бій.
+		</h3>
+		<p>
+			Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів.
+			Користувач стріляє вказуючи координати. Гра продовжується поки не потоплено усі кораблі або у користувача не
+			закінчаться снаряди.
+		</p>
+
+	</header>
+	<main>
+		<h3>
+			Вивід результатів:
+		</h3>
+
+		<script>
+			"use strict"
+			// Ввід данних
+
+			const rowNumber = 6
+			const columnNumber = 6
+			const shipsQuantity = 5
+			let numberOfShells = parseInt(prompt('Поле 6*6, 5 кораблів. Введіть бажану кількість снарядів:'))
+
+			// формування поля
+			function getFieldFormation(rowNumber, columnNumber) {
+				let fieldArr = []
+				for (let i = 0; i < rowNumber; i++) {
+					let rowArr = new Array(columnNumber).fill(0)
+					fieldArr.push(rowArr)
+				}
+				return fieldArr
+			}
+
+			// Розташування кораблів
+			function getLocationShips(rowNumber, columnNumber, shipsQuantity) {
+				let locationArr = getFieldFormation(rowNumber, columnNumber)
+				for (let j = 0; j < shipsQuantity;) {
+					let rowPosition = Math.floor(Math.random() * 6)
+					let columnPosition = Math.floor(Math.random() * 6)
+					if (locationArr[rowPosition][columnPosition] !== 1) {
+						locationArr[rowPosition][columnPosition] = 1
+						j++
+					}
+				}
+				return locationArr
+			}
+			let fieldWithShips = getLocationShips(rowNumber, columnNumber, shipsQuantity)
+
+			// дії в грі
+			function seaBattle(fieldWithShips, shipsQuantity, numberOfShells) {
+				let result
+				while (shipsQuantity > 0 && numberOfShells > 0) {
+					let userChoiseRow = parseInt(prompt('Введить координати коробля по горизонталі:')) - 1
+					let userChoiseColumn = parseInt(prompt('Введить координати коробля по вертикалі:')) - 1
+					numberOfShells--
+					if (fieldWithShips[userChoiseRow][userChoiseColumn] === 1) {
+						shipsQuantity--
+						alert('Ви влучили!')
+					} else (alert(`Ви схибили, залишилось ${numberOfShells} снарядів`))
+				}
+				if (shipsQuantity === 0) result = alert('Ви перемогли, вітаємо!!!')
+				else result = alert('Ви програли!')
+				return result
+			}
+			seaBattle(fieldWithShips, shipsQuantity, numberOfShells)
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_3.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

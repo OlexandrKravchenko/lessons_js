@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Знайти суми елементів у вказаній області :
+		</h3>
+
+	</header>
+	<main>
+		<h3>
+			Вивід результатів:
+		</h3>
+
+		<script>
+			"use strict"
+
+			const array = [
+				[17, 78, 15, 36, 24, 8],
+				[10, 28, 9, 78, 50],
+				[23, 78, 46, 71, 99, 63],
+				[27, 15, 36, 9]
+			]
+			const halfRows = Math.floor(array.length / 2);
+
+			//=== Номери рядків від 0 до половини, стовпці від 0 до половини (quarter2)
+
+			let sumRowsColumnsQuarter2 = 0;
+
+			for (let rowIndex = 0; rowIndex < halfRows; rowIndex++) {
+				const halfColumns = Math.floor(array[rowIndex].length / 2);
+
+				for (let columnIndex = 0; columnIndex < halfColumns; columnIndex++) {
+					sumRowsColumnsQuarter2 += array[rowIndex][columnIndex];
+				}
+
+			}
+
+			//=== Номери рядків від 0 до половини, стовпці від половини до кінця (quarter1)
+
+			let sumRowsColumnsQuarter1 = 0;
+
+			for (let rowIndex = 0; rowIndex < halfRows; rowIndex++) {
+				const halfColumns = Math.floor(array[rowIndex].length / 2);
+				for (let columnIndex = halfColumns; columnIndex < array[rowIndex].length; columnIndex++) {
+					sumRowsColumnsQuarter1 += array[rowIndex][columnIndex];
+				}
+			}
+
+			//=== Номери рядків від половини до кінця, стовпці від 0 до половини (quarter3)
+
+			let sumRowsColumnsQuarter3 = 0;
+
+			for (let rowIndex = halfRows; rowIndex < array.length; rowIndex++) {
+				const halfColumns = Math.floor(array[rowIndex].length / 2);
+				for (let columnIndex = 0; columnIndex < halfColumns; columnIndex++) {
+					sumRowsColumnsQuarter3 += array[rowIndex][columnIndex];
+				}
+			}
+
+			//=== Номери рядків від половини до кінця , стовпці від половини до кінця (quarter4)
+
+			let sumRowsColumnsQuarter4 = 0;
+
+			for (let rowIndex = halfRows; rowIndex < array.length; rowIndex++) {
+				const halfColumns = Math.floor(array[rowIndex].length / 2);
+				for (let columnIndex = halfRows; columnIndex < array[rowIndex].length; columnIndex++) {
+					sumRowsColumnsQuarter4 += array[rowIndex][columnIndex];
+				}
+			}
+
+			//=== Суму парних рядків
+
+			let sumOfEvenRows = 0;
+
+			for (let rowIndex = 0; rowIndex < array.length; rowIndex += 2) {
+				for (let columnIndex = 0; columnIndex < array[rowIndex].length; columnIndex++) {
+					sumOfEvenRows += array[rowIndex][columnIndex];
+				}
+			}
+
+			//=== Суму непарних стовпців
+
+			let sumOfOddColumns = 0;
+
+			for (let rowIndex = 0; rowIndex < array.length; rowIndex++) {
+				for (let columnIndex = 1; columnIndex < array[rowIndex].length; columnIndex += 2) {
+					sumOfOddColumns += array[rowIndex][columnIndex];
+				}
+			}
+
+			//=== У парних рядках – непарні стовпці, у непарних – парні 
+
+			let sumInEvenRowsOddColumnsInOddRowsEvenColumns = 0;
+
+			for (let rowIndex = 0; rowIndex < array.length; rowIndex++) {
+				for (let columnIndex = 0; columnIndex < array[rowIndex].length; columnIndex++) {
+					if ((rowIndex % 2 === 0 && columnIndex % 2 !== 0) || (rowIndex % 2 !== 0 && columnIndex % 2 === 0))
+						sumInEvenRowsOddColumnsInOddRowsEvenColumns += array[rowIndex][columnIndex];
+				}
+			}
+
+			document.write(`<ol>
+
+				<li>Сума елементів (номери рядків від 0 до половини, стовпці від 0 до половини): ${sumRowsColumnsQuarter2}</li>
+
+				<li>Сума елементів (номери рядків від 0 до половини, стовпці від половини до кінця): ${sumRowsColumnsQuarter1}</li>
+
+				<li>Сума елементів (номери рядків від половини до кінця, стовпці від 0 до половини): ${sumRowsColumnsQuarter3}</li>
+
+				<li>Сума елементів (номери рядків від половини до кінця , стовпці від половини до кінця): ${sumRowsColumnsQuarter4}</li>
+
+				<li>Сума елементів (парних рядків): ${sumOfEvenRows}</li>
+
+				<li>Сума елементів (непарних стовпців): ${sumOfOddColumns}</li>
+
+				<li>Сума елементів (у парних рядках – непарні стовпці, у непарних – парні): ${sumInEvenRowsOddColumnsInOddRowsEvenColumns}</li>
+			
+			</ol>`);
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_1.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
