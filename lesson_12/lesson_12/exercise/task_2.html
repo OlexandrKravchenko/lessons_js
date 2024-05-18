@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів та порівнянь чисел під час сортування
+			змішуванням.
+		</h3>
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			// Генеруємо масив =================================================
+			function getRandomNum(minNum, maxNum) {
+				return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+			}
+			function generateRandomArray(minNum, maxNum) {
+				const arr = []
+				for (let i = 0; i < 30; i++) {
+					const randNum = getRandomNum(minNum, maxNum)
+					arr.push(randNum)
+				}
+				return arr
+			}
+			let arr30 = generateRandomArray(1, 999)
+			document.write(`Початковий масив: ${arr30} <hr>`)
+
+			// Знаходимо результат =============================================
+
+			let numberComparisons = 0
+			let numberExchanges = 0
+			let leftIndex = 0
+			let rightIndex = arr30.length - 1
+
+			while (leftIndex < rightIndex) {
+				let changed = false
+				for (let i = leftIndex + 1; i <= rightIndex; i++) {
+					numberComparisons++
+					if (arr30[i - 1] > arr30[i]) {
+						let temp = arr30[i - 1]
+						arr30[i - 1] = arr30[i]
+						arr30[i] = temp
+						changed = true
+						numberExchanges++
+					}
+				}
+				rightIndex--
+				if (changed === false) break
+
+				changed = false
+				for (let i = rightIndex; i > leftIndex; i--) {
+					numberComparisons++
+					if (arr30[i - 1] > arr30[i]) {
+						let temp = arr30[i - 1]
+						arr30[i - 1] = arr30[i]
+						arr30[i] = temp
+						changed = true
+						numberExchanges++
+					}
+				}
+				leftIndex++
+				if (changed === false) break
+			}
+
+			document.write(`
+			<div>Кількість порівнянь: ${numberComparisons} </div>
+			<div>Кількість обмінів: ${numberExchanges} </div>
+			<div>Упорядкований масив: ${arr30} </div> <hr>
+			`)
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_2.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

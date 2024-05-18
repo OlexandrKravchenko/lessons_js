@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<div>
+			Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів та порівнянь чисел під час сортування
+			включеннями.
+		</div>
+
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			// Генеруємо масив =================================================
+			function getRandomNum(minNum, maxNum) {
+				return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+			}
+			function generateRandomArray(minNum, maxNum) {
+				const arr = []
+				for (let i = 0; i < 30; i++) {
+					const randNum = getRandomNum(minNum, maxNum)
+					arr.push(randNum)
+				}
+				return arr
+			}
+			let arr30 = generateRandomArray(-99, 999)
+			document.write(`Початковий масив: ${arr30} <hr>`)
+
+			// Знаходимо результат =============================================
+
+			let numberComparisons = 0
+			let numberExchanges = 0
+
+
+			for (let k = 1; k < arr30.length; k++) {
+				const currentEl = arr30[k]
+				let i = k - 1
+				while (i >= 0 && arr30[i] > currentEl) {
+					numberComparisons++
+					arr30[i + 1] = arr30[i]
+					numberExchanges++
+					i = i - 1
+				}
+				arr30[i + 1] = currentEl
+				numberComparisons++
+			}
+
+
+			document.write(`
+			<div>Кількість порівнянь: ${numberComparisons} </div>
+			<div>Кількість обмінів: ${numberExchanges} </div>
+			<div>Упорядкований масив: ${arr30} </div> <hr>
+			`)
+
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_3.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<header>
+
+		<h3>
+			Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я «Olga» і
+			під яким індексом.
+		</h3>
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			// Вводні дані ============================================
+			let arrNames = ['Olga', 'Ivan', 'Kateryna', 'Aliona', 'Artem', 'Evgen', 'Galina', 'Petro', 'Sergiy', 'Valeriy']
+			document.write(`Початковий масив: [${arrNames}] <hr>`)
+
+			// Упорядковуємо масив ============================================
+			const prevLastIndex = arrNames.length - 2
+			for (let i = 0; i <= prevLastIndex; i++) {
+				let minIndex = i
+				for (let j = i + 1; j < arrNames.length; j++) {
+					if (arrNames[j] < arrNames[minIndex]) {
+						minIndex = j
+					}
+				}
+				if (i !== minIndex) {
+					let temp = arrNames[i]
+					arrNames[i] = arrNames[minIndex]
+					arrNames[minIndex] = temp
+				}
+			}
+			document.write(`Упорядкований масив: [${arrNames}] <hr>`)
+
+			// Знаходимо результат ============================================
+
+			function getRequiredElement(arr, searchElement) {
+				let start = 0
+				let end = arr.length - 1
+				while (start <= end) {
+					const middle = Math.floor((start + end) / 2)
+					if (arr[middle] === searchElement) return middle
+					if (arr[middle] < searchElement) start = middle + 1
+					if (arr[middle] > searchElement) end = middle - 1
+				}
+				return -1
+			}
+
+			let searchElement = 'Olga'
+			let indexSearchElement = getRequiredElement(arrNames, searchElement)
+
+			if (indexSearchElement !== -1) document.write(`В упорядкованому масиві знайдено ім’я: ${searchElement}, за индексом ${indexSearchElement}`)
+			else document.write(`В масиві ім’я: ${searchElement} не має`)
+
+
+
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_5.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

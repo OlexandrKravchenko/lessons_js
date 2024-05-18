@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 7</title>
+</head>
+
+<body>
+	<header>
+		<h4>
+			Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.
+		</h4>
+	</header>
+	<main>
+		<script>
+			"use strict"
+			let array = [26, 1122, 228, 1360, 780, 3512, 560, 1810, 1500, 237, 22]
+			array.forEach((element, index, array) => {
+				if (element > 1000) array[index] *= 0.7;
+			})
+			document.write(`<div>${array} </div>`)
+
+		</script>
+	</main>
+	<footer>
+		<a href="../exercise/task_7.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
