@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Для розглянутих методів сортування спробувати вивести етапи сортування шляхом виведення відповідних таблиць
+			за зразком .
+			Тобто кожного разу після обміну елементів вивести поточний стан масиву на екран
+		</h3>
+
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			let arr5 = [3, 5, 1, 4, 2]
+			document.write(`Початковий масив: [${arr5}] <hr>`)
+
+			// Знаходимо результат =============================================
+			document.write('Сортування бульбашкою: <br>')
+
+			function getBubbleSort([...arr5]) {
+				let changed
+				do {
+					changed = false
+					for (let i = 0; i < arr5.length; i++) {
+						if (arr5[i - 1] > arr5[i]) {
+							let tmp = arr5[i - 1]
+							arr5[i - 1] = arr5[i]
+							arr5[i] = tmp
+							changed = true
+							document.write(`[${arr5}] <br>`)
+						}
+					}
+				} while (changed);
+			}
+			getBubbleSort(arr5)
+
+			document.write('<hr> Сортування змішуванням: <br>')
+
+			function getCocktailSort([...arr5]) {
+				let leftIndex = 0
+				let rightIndex = arr5.length - 1
+				while (leftIndex < rightIndex) {
+					let changed = false
+					for (let i = leftIndex + 1; i <= rightIndex; i++) {
+						if (arr5[i - 1] > arr5[i]) {
+							let temp = arr5[i - 1]
+							arr5[i - 1] = arr5[i]
+							arr5[i] = temp
+							changed = true
+							document.write(`[${arr5}] <br>`)
+						}
+					}
+					rightIndex--
+					if (changed === false) break
+
+					changed = false
+					for (let i = rightIndex; i > leftIndex; i--) {
+						if (arr5[i - 1] > arr5[i]) {
+							let temp = arr5[i - 1]
+							arr5[i - 1] = arr5[i]
+							arr5[i] = temp
+							changed = true
+							document.write(`[${arr5}] <br>`)
+						}
+					}
+					leftIndex++
+					if (changed === false) break
+				}
+			}
+			getCocktailSort(arr5)
+
+			document.write('<hr> Сортування включеннями: <br>')
+
+			function getInsertSort([...arr5]) {
+				for (let k = 1; k < arr5.length; k++) {
+					const currentEl = arr5[k]
+					let i = k - 1
+					while (i >= 0 && arr5[i] > currentEl) {
+						arr5[i + 1] = arr5[i]
+						i--
+					}
+					arr5[i + 1] = currentEl
+					document.write(`[${arr5}] <br>`)
+				}
+			}
+			getInsertSort(arr5)
+		</script>
+
+
+
+
+	</main>
+	<footer>
+		<a href="../exercise/task_4.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
