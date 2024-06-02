@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 7</title>
+</head>
+
+<body>
+	<header>
+		<h4>
+			Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад з додавання двох цифр і робиться
+			перевірка.
+		</h4>
+	</header>
+	<main>
+		<script>
+			"use strict"
+			alert('Тренажер додавання. Кожні 10 секунд з`являється нове завдання.')
+			function getRandomNum(min, max) {
+				return min + Math.floor(Math.random() * (max - min + 1))
+			}
+			function exercises() {
+				let firstNum = getRandomNum(2, 99)
+				let secondNum = getRandomNum(2, 99)
+				let result = firstNum + secondNum
+				let userAnswer = parseInt(
+					prompt(`Розв'яжіть приклад: ${firstNum} + ${secondNum}?`)
+				)
+				if (userAnswer === result) alert("Правильна відповідь")
+				else alert(`Невірно, правильна відповідь: ${result}`)
+				setTimeout(exercises, 10000)
+			}
+			setTimeout(exercises, 10000)
+
+		</script>
+	</main>
+	<footer>
+		<a href="../exercise/task_7.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

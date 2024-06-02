@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Дано масив хлопців і дівчат вивести всі можливі комбінації для танців з хлопців і дівчат.
+		</h3>
+
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+			let guysArr = ['Артем', 'Іван', 'Джон', 'Роберт', 'Олег']
+			let girlsArr = ['Єва', 'Альона', 'Катерина', 'Оксана', 'Галина']
+			document.write(`Хлопці: ${guysArr} <br> Дівчата: ${girlsArr} <hr>`)
+
+			// Знаходимо результат =============================================
+
+			function generateCouple(firstArr, secondArr, resultArr = []) {
+				for (let j = 0; j < firstArr.length; j++) {
+					for (let i = 0; i < secondArr.length; i++) {
+						let arr = [...resultArr, firstArr[j], secondArr[i]]
+						if (arr.length === 2) {
+							document.write(`${arr[0]} та ${arr[1]} <br>`)
+						}
+					}
+					document.write('<hr>')
+				}
+			}
+			generateCouple(guysArr, girlsArr)
+
+
+
+
+
+
+
+		</script>
+
+
+
+
+	</main>
+	<footer>
+		<a href="../exercise/task_4.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 6</title>
+</head>
+
+<body>
+	<header>
+		<h4 class="list__text">
+			З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати
+			по одну букву наперед заданого слова. З використанням нього розробити гру «Прекладач». Виводимо для
+			користувача опис цього слова і по одну букву користувач вводить переклад цього слова. Підрахувати кількість
+			вгаданих букв.
+		</h4>
+
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			function iteratorWord(word, counter = 0, guessedLetters = []) {
+
+				alert(`Загадане слово це: Погода, англійською мовою.`)
+				function getLetter(params) {
+					for (let i = 0; i < word.length; i++) {
+						let currentLetter = prompt('Введіть поступово літери загаданого слова')
+						if (currentLetter.toLowerCase() === word[i]) {
+							counter++
+							guessedLetters.push(word[i])
+						} else {
+							guessedLetters.push('_')
+						}
+					}
+					if (guessedLetters.length !== 0) {
+						document.write(`Вгадані літери: ${guessedLetters} <br>`)
+					}
+					if (word.length === counter) {
+						document.write(`Вітаю слово ${word} вгадано повністю <br>`)
+					}
+					return counter
+				}
+				return getLetter()
+			}
+
+			const hiddenWord = 'weather'
+			document.write(`Ви вгадали: ${iteratorWord(hiddenWord)} літер з ${hiddenWord.length}. <br> Загадане слово: ${hiddenWord}`)
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_6.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

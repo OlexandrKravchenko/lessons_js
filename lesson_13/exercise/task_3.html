@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<div>
+			Виведіть всі можливі наступні комбінації ходів користувачів у грі“Хрестики-нулики”, починаючи з деякої
+			заданої ситуації (тобто маємо двовимірний масив з елементами) : 0 - нулик, Х - хрестик, пробіл - ще не
+			зайнято, і вам треба самостійно вивести всі можливі шляхи заповнення ще незаповнених клітинок (де пробіли).
+			Поки можна не підраховувати чи вже є 3 хрестики чи 3 нулики у рядок.
+		</div>
+
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			// Генеруємо масив =================================================
+			let matrix = [
+				[0, 'X', ''],
+				['', 0, ''],
+				['', 'X', ''],
+			]
+
+			// Знаходимо результат =============================================
+			function getCombinationsOfMoves(matrix, freeItemsLeft) {
+				if (freeItemsLeft === 0) document.write(`${generateTable(matrix)}`)
+				else {
+					for (let i = 0; i < matrix.length; i++) {
+						for (let j = 0; j < matrix.length; j++) {
+							if (matrix[i][j] === '') {
+								let matrCopy1 = JSON.parse(JSON.stringify(matrix))
+								matrCopy1[i][j] = 0
+								getCombinationsOfMoves(matrCopy1, freeItemsLeft - 1)
+								let matrCopy2 = JSON.parse(JSON.stringify(matrix))
+								matrCopy2[i][j] = 'X'
+								getCombinationsOfMoves(matrCopy2, freeItemsLeft - 1)
+							}
+						}
+					}
+				}
+			}
+			function generateTable(matrix) {
+				let table = '<table class="table">'
+				for (const row of matrix) {
+					table += '<tr>'
+					for (const column of row) {
+						table += `<td>${column}</td>`
+					}
+					table += '</tr>'
+				}
+				table += '</table>'
+				return table
+			}
+			getCombinationsOfMoves(matrix, 5)
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_3.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
