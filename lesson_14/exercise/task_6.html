@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 6</title>
+</head>
+
+<body>
+	<header>
+		<h4 class="list__text">
+			З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати
+			по одну букву наперед заданого слова. З використанням нього розробити гру «Прекладач». Виводимо для
+			користувача опис цього слова і по одну букву користувач вводить переклад цього слова. Підрахувати кількість
+			вгаданих букв.
+		</h4>
+
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			function getLettersInWord(word) {
+				let letterIndex = 0
+				return function () {
+					if (letterIndex < word.length)
+						return word[letterIndex++]
+				}
+			}
+
+			function translator(word, description) {
+				let taskInfo = alert(
+					`Перекладіть англійською мовою: ${description} (${word.length} букв)`
+				)
+				let wordInLetters = getLettersInWord(word)
+				let counter = 0
+				let userLettersArr = []
+
+				for (let letter = 0; letter < word.length; letter++) {
+					const userLetter = prompt(
+						`Введіть ${letter + 1} букву перекладу`
+					).toLowerCase()
+					const wrightLetter = wordInLetters()
+
+					userLettersArr.push(userLetter)
+					if (wrightLetter === userLetter) counter++
+				}
+				return [userLettersArr, counter]
+			}
+			let word = 'weather'
+			let description = ' Стан нижнього шару атмосфери у певній місцевості в конкретний час або протягом тривалого часу'
+			let [userLettersArr, counter] = translator(word, description)
+
+			document.write(
+				`Переклад загаданого слова: ${word}. <br> Ви ввели букви: ${userLettersArr}.
+			Кількість правильно вгаданих букв: ${counter}`
+			)
+
+
+
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_6.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

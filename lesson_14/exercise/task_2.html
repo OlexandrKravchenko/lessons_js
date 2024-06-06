@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+		</h3>
+	</header>
+	<main>
+		<h4>
+			Вивід результату:
+		</h4>
+
+		<script>
+			"use strict"
+
+			// Вводимо дані =================================================
+			let currentDate = new Date()
+			let dateObj = {
+				day: currentDate.getDate(),
+				month: currentDate.getMonth() + 1,
+				year: currentDate.getFullYear()
+			}
+			document.write(`Поточна дата: ${dateObj.day}.${dateObj.month}.${dateObj.year} (день, місяць, рік)`)
+
+			// Знаходимо результат =============================================
+			function getYearAfterPeriod(dateObj, userPeriod) {
+				let date = { ...dateObj }
+				let totalMonths = date.month - 1 + userPeriod
+				let yearAfterPeriod = date.year + Math.floor(totalMonths / 12)
+				return yearAfterPeriod
+			}
+			let userPeriod = parseInt(prompt('Введіть потрібну кількість місяців:', '48'))
+
+			document.write(`<br> Через ${userPeriod} місяців, настане ${getYearAfterPeriod(dateObj, userPeriod)} рік`)
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_2.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
