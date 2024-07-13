@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Розробити клас Baner
+		</h3>
+		<table>
+			<tr>
+				<td>
+					Поля(властивості)
+				</td>
+				<td>
+					Масив об’єктів ( графічних зображень та посилань на сайти)
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Методи (дії)
+				</td>
+				<td>
+					Метод випадкового вибору об’єкта (графічного зображення та посилання)<br>
+					Метод виведення випадкового банера
+				</td>
+			</tr>
+		</table>
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			let signboard = [
+				{
+					image: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Pontiac_Firebird.jpg',
+					link: 'https://uk.wikipedia.org/wiki/Pontiac_Firebird'
+				},
+				{
+					image: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/1970_Dodge_Challenger_RT_440_Magnum_%2813440447413%29.jpg',
+					link: 'https://uk.wikipedia.org/wiki/Dodge_Challenger'
+				},
+				{
+					image: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/1965_Ford_Mustang_Fastback_%2814585287771%29.jpg',
+					link: 'https://uk.wikipedia.org/wiki/Ford_Mustang'
+				},
+				{
+					image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Flickr_-_DVS1mn_-_67_Chevrolet_Camaro_%282%29.jpg',
+					link: 'https://uk.wikipedia.org/wiki/Chevrolet_Camaro'
+				},
+				{
+					image: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Buick_Wildcat_Cbriolet1969_%2814520838154%29.jpg',
+					link: 'https://uk.wikipedia.org/wiki/Buick_Wildcat'
+				}
+			]
+
+			// розробляємо класс =========================== 
+
+			class Banner {
+				constructor(array) {
+					this.banners = array
+				}
+				getRandomImage() {
+					let randInd = Math.floor(Math.random() * (this.banners.length))
+					return this.banners[randInd]
+				}
+				showBanner() {
+					let banner = this.getRandomImage()
+					document.write(`
+					<div class="banner">
+					 	<a class="banner__link" href="${banner.link}" target="_blank">
+                  	<img class="banner__image" src="${banner.image}" alt="photo auto">
+               	</a>
+					</div>
+					`)
+				}
+			}
+			const showBanner = new Banner(signboard)
+			showBanner.showBanner()
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_5.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

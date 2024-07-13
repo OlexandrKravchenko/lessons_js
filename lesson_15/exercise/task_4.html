@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Розробити клас MultChecker для перевірки таблиці множення.
+		</h3>
+		<table>
+			<tr>
+				<td>
+					Поля(властивості)
+				</td>
+				<td>
+					Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7) <br>
+					Кількість правильних відповідей<br>
+					Кількість неправильних відповідей
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Методи (дії)
+				</td>
+				<td>
+					Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)<br>
+					Перевірка правильності вказаної відповіді <br>
+					render - виведення інформації про тестування на екран
+				</td>
+			</tr>
+		</table>
+
+	</header>
+	<main>
+		<h4>
+			Вивід результату:
+		</h4>
+		<script>
+			"use strict"
+
+			class MultChecker {
+				constructor(number) {
+					this.currentNumber = number
+					this.correctAnswers = 0
+					this.incorrectAnswers = 0
+				}
+
+				generateExample() {
+					let randomNum = 1 + Math.floor(Math.random() * 10)
+					this.answer = parseInt(prompt(`Скільки буде ${this.currentNumber} * ${randomNum}?`))
+					this.currentExample = this.currentNumber * randomNum
+					return this.currentExample
+				}
+
+				checkAnswer() {
+					for (let i = 0; i < 10; i++) {
+						this.generateExample()
+						if (this.answer === this.currentExample) {
+							this.correctAnswers++
+							alert("Вірна відповідь!")
+						} else {
+							this.incorrectAnswers++
+							alert(`Не вірно. Правильна відповідь буде: ${this.currentExample}`)
+						}
+					}
+				}
+
+				render() {
+					document.write(`
+					<div>Число для перевірки: ${this.currentNumber}</div>
+					<div> Кількість правильних відповідей: ${this.correctAnswers} </div> 
+					<div> Кількість не правильних відповідей: ${this.incorrectAnswers} </div>
+					`)
+				}
+			}
+
+			let checkNumber = parseInt(prompt('Введіть число для перевірки'))
+
+			let checker = new MultChecker(checkNumber)
+
+			checker.checkAnswer()
+			checker.render()
+
+		</script>
+
+
+
+
+	</main>
+	<footer>
+		<a href="../exercise/task_4.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

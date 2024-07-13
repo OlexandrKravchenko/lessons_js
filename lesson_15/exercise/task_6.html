@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 6</title>
+</head>
+
+<body>
+	<header>
+		<h4 class="list__text">
+			Розробити клас «Керівник танців»
+		</h4>
+		<table>
+			<tr>
+				<td>
+					Поля(властивості)
+				</td>
+				<td>
+					Масив імен хлопців<br>
+					Масив імен дівчат
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Методи (дії)
+				</td>
+				<td>
+					Метод випадкового вибору імені хлопця<br>
+					Метод випадкового вибору імені дівчини<br>
+					Метод виведення пари для танців<br>
+					Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
+				</td>
+			</tr>
+		</table>
+	</header>
+	<main>
+
+		<script>
+			"use strict"
+
+			let guysArr = ['Артем', 'Іван', 'Джон', 'Роберт', 'Олег']
+			let girlsArr = ['Єва', 'Альона', 'Катерина', 'Оксана', 'Галина']
+			document.write(`Хлопці: ${guysArr} <br> Дівчата: ${girlsArr} <hr>`)
+
+			class RandomCouples {
+				constructor(firstList, secondList) {
+					this.firstList = firstList
+					this.secondList = secondList
+				}
+				getRandomCouples() {
+					let randIndFirst = Math.floor(Math.random() * this.firstList.length)
+					let randIndSecond = Math.floor(Math.random() * this.secondList.length)
+					document.write(`${this.firstList[randIndFirst]} -&- ${this.secondList[randIndSecond]} <br>`)
+				}
+				run() {
+					setInterval(() => {
+						this.getRandomCouples()
+					}, 5000);
+				}
+			}
+
+			let dancingCouples = new RandomCouples(guysArr, girlsArr)
+			dancingCouples.run()
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_6.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

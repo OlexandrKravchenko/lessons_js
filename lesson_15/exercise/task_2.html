@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<header>
+		<h3>
+			Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+		</h3>
+		<table>
+			<tr>
+				<th>Тир</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>Поля(властивості)</td>
+				<td>Масив, у якому зберігається поле з зайцями</td>
+			</tr>
+			<tr>
+				<td>Методи (дії)</td>
+				<td>Метод пострілу (задається позиція пострілу)
+					<br>
+					Виведення ігрового поля
+				</td>
+			</tr>
+		</table>
+	</header>
+	<main>
+		<h4>
+			Вивід результату:
+		</h4>
+
+		<script>
+			"use strict"
+
+			// Вводимо дані =================================================
+
+			class ShootingRange {
+				constructor(fieldSize) {
+					this.size = fieldSize
+					this.field = this.generateField(fieldSize)
+				}
+
+				generateField(size) {
+					let field = []
+					for (let j = 0; j < size; j++) {
+						field.push(Math.floor(Math.random() < 0.5 ? 1 : 0))
+					}
+					return field
+				}
+
+				shoot(x) {
+					if (x >= 0 && x < this.size) {
+						if (this.field[x] === 1) {
+							alert("Вітаю! Влучели у зайця!")
+						} else {
+							alert("Мимо! У цьому квадраті немає зайця.")
+						}
+					} else {
+						alert("Постріл за межами поля!");
+					}
+				}
+
+				displayField() {
+					document.write(`Ігрове поле: ${this.field}`)
+				}
+
+			}
+
+			let shootingRange = new ShootingRange(10)
+
+			let shotResult = parseInt(prompt('Введіть позицію пострілу, від 0 до 9'))
+			shootingRange.shoot(shotResult)
+			shootingRange.displayField()
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_2.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>

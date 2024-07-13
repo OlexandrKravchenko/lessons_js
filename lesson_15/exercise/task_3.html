@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<header>
+		<div>
+			Створити об’єкт «Авто».
+		</div>
+		<table>
+			<tr>
+				<th>Авто</th>
+			</tr>
+			<tr>
+				<td>Поля(властивості)</td>
+				<td>
+					Марка <br>
+					Розмір бака <br>
+					Кількість наявних літрів <br>
+					Кількість місць <br>
+					Кількість пасажирів
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Методи (дії)
+				</td>
+				<td>
+					Заправка на вказану кількість літрів <br>
+					Виведення кількості пасажирів <br>
+					Додавання пасажирів <br>
+					Висадка пасажирів
+				</td>
+			</tr>
+		</table>
+
+	</header>
+	<main>
+		<h4>
+			Вивід результату:
+		</h4>
+
+		<script>
+			"use strict"
+
+			// Знаходимо результат =================================================
+
+			let auto = {
+				// властивості
+				brand: 'Renault',
+				tankSize: 90,
+				availableLitersNum: 22,
+				seatsNum: 8,
+				passengersNum: 3,
+				// методи
+				refuelingNum: function (liters) {
+					if ((this.availableLitersNum + liters) > this.tankSize) {
+						throw new Error('Не влізе, перевищено обсяг бака')
+					} else this.availableLitersNum += liters
+				},
+				showPassengersNum: function () {
+					return this.passengersNum
+				},
+				addPassengers: function (passengers) {
+					if ((this.passengersNum + passengers) > this.seatsNum) {
+						throw new Error('Кількість пасажирів перевищує кількість місць')
+					} else this.passengersNum += passengers
+				},
+				disembarkationPassenger: function (passengers) {
+					if (passengers > this.passengersNum) {
+						throw new Error('Недостатньо пасажирів, неможливо висадити.')
+					} else this.passengersNum -= passengers
+				}
+			}
+
+			document.write(`
+            <div>
+               Марка авто: ${auto.brand}
+            </div>
+            <div>
+               Розмір бензобаку: ${auto.tankSize}
+            </div>
+            <div>
+               Залишок палива: ${auto.availableLitersNum}
+            </div>
+            <div>
+               Кількість місць: ${auto.seatsNum}
+            </div>
+            <div>
+               Кількість пасажирів: ${auto.passengersNum}
+            </div>
+			`)
+
+			document.write('<hr> <div> Результат після змін: </div>')
+			auto.refuelingNum(60)
+			document.write(`Кількість палива: ${auto.availableLitersNum} <br>`)
+			auto.addPassengers(5)
+			auto.disembarkationPassenger(2)
+			document.write(`Кількість пасажирів: ${auto.showPassengersNum()} <br>`)
+
+		</script>
+
+	</main>
+	<footer>
+		<a href="../exercise/task_3.html" class="reboot">Спробувати ще!</a>
+		<a class="button" href="../index.html">На головну</a>
+	</footer>
+</body>
+
+</html>
